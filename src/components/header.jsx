@@ -8,12 +8,15 @@ import {
   X,
   Youtube,
   Instagram,
+  Menu,
+  X as Close
 } from "lucide-react";
 
 import logo from "../assets/images/amr-whitelogo.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -24,72 +27,54 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
 
-      {/* ===================== TOP INFO BAR ===================== */}
-      {!scrolled && (
-        <div className="bg-[#d1a32c] text-white text-[15px] py-3 transition-all duration-300">
-          <div className="max-w-7xl mx-auto px-1 flex justify-between items-center">
+      {/* ===================== TOP INFO BAR (hidden on mobile + tablet) ===================== */}
+      <div
+        className={`${
+          !scrolled ? "xl:block hidden" : "hidden"
+        } bg-[#d1a32c] text-white text-[15px] py-3 transition-all duration-300`}
+      >
+        <div className="max-w-7xl mx-auto px-3 flex justify-between items-center">
 
-            {/* LEFT SIDE */}
-            <div className="flex items-center gap-9">
-              <span className="flex items-center gap-2">
-                <MapPin size={18} />
-                Battaglia Veneto, Italy
-              </span>
+          {/* LEFT INFO */}
+          <div className="flex items-center gap-9">
+            <span className="flex items-center gap-2">
+              <MapPin size={18} />
+              Gowrelly, Hyderabad, Telangana
+            </span>
 
-              {/* Divider */}
-              <div className="w-[1px] h-5 bg-white/60"></div>
+            <div className="w-[1px] h-5 bg-white/60"></div>
 
-              <span className="flex items-center gap-2">
-                <Phone size={18} />
-                +00 123 456789
-              </span>
-            </div>
-
-            {/* RIGHT SIDE */}
-            <div className="flex items-center gap-8">
-
-              
-
-              <span className="flex items-center gap-2">
-                <Clock size={18} />
-                Mon to Sat - 09:00 to 21:00
-              </span>
-
-              {/* Divider */}
-              <div className="w-[1px] h-5 bg-white/60"></div>
-
-              {/* SOCIAL ICONS */}
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 flex items-center justify-center rounded-full 
-                                bg-white/20 border border-white/70 
-                                hover:bg-white/40 transition cursor-pointer">
-                  <Facebook size={16} className="text-white" />
-                </div>
-
-                <div className="w-8 h-8 flex items-center justify-center rounded-full 
-                                bg-white/20 border border-white/70 
-                                hover:bg-white/40 transition cursor-pointer">
-                  <X size={16} className="text-white" />
-                </div>
-
-                <div className="w-8 h-8 flex items-center justify-center rounded-full 
-                                bg-white/20 border border-white/70 
-                                hover:bg-white/40 transition cursor-pointer">
-                  <Youtube size={16} className="text-white" />
-                </div>
-
-                <div className="w-8 h-8 flex items-center justify-center rounded-full 
-                                bg-white/20 border border-white/70 
-                                hover:bg-white/40 transition cursor-pointer">
-                  <Instagram size={16} className="text-white" />
-                </div>
-              </div>
-
-            </div>
-
+            <span className="flex items-center gap-2">
+              <Phone size={18} />
+              +91 9052 299 299
+            </span>
           </div>
+
+          {/* RIGHT INFO */}
+          <div className="flex items-center gap-8">
+            <span className="flex items-center gap-2">
+              <Clock size={18} />
+              Mon to Sat - 09:00 to 21:00
+            </span>
+
+            <div className="w-[1px] h-5 bg-white/60"></div>
+
+            <div className="flex items-center gap-3">
+              {[Facebook, X, Youtube, Instagram].map((Icon, i) => (
+                <div
+                  key={i}
+                  className="w-8 h-8 flex items-center justify-center rounded-full 
+                             bg-white/20 border border-white/70 
+                             hover:bg-white/40 transition cursor-pointer"
+                >
+                  <Icon size={16} className="text-white" />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
-      )}
+      </div>
 
       {/* ===================== MAIN NAVBAR ===================== */}
       <nav
@@ -99,39 +84,65 @@ export default function Navbar() {
             : "bg-black/40 backdrop-blur-[4px]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-1 flex items-center justify-between py-5">
+        <div className="max-w-7xl mx-auto px-3 flex items-center justify-between py-4">
 
-          {/* LEFT → LOGO */}
-          <img src={logo} alt="Logo" className="h-14 cursor-pointer" />
+          {/* LOGO */}
+          <Link to="/">
+            <img src={logo} alt="Logo" className="h-14 cursor-pointer" />
+          </Link>
 
-          {/* CENTER → NAV ITEMS */}
-          <ul className="hidden md:flex items-center gap-22 font-medium text-[17px] text-white transition-colors">
-            <li className="hover:text-[#d1a32c] cursor-pointer">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="hover:text-[#d1a32c] cursor-pointer">
-              <Link to="/about">About Us</Link>
-            </li>
-            <li className="hover:text-[#d1a32c] cursor-pointer">
-              <Link to="/blogs">Blogs</Link>
-            </li>
-            <li className="hover:text-[#d1a32c] cursor-pointer">
-              <Link to="/contact">Contact Us</Link>
-            </li>
+          {/* DESKTOP MENU */}
+          <ul className="hidden md:flex items-center gap-16 font-medium text-[17px] text-white">
+            <li className="hover:text-[#d1a32c]"><Link to="/">Home</Link></li>
+            <li className="hover:text-[#d1a32c]"><Link to="/about">About Us</Link></li>
+            <li className="hover:text-[#d1a32c]"><Link to="/blogs">Blogs</Link></li>
+            <li className="hover:text-[#d1a32c]"><Link to="/contact">Contact Us</Link></li>
           </ul>
 
-          {/* RIGHT → BUTTON */}
+          {/* ENQUIRY BUTTON (Desktop only) */}
           <button
-            className={`px-7 py-3 rounded-full font-semibold transition ${
-              scrolled
-                ? "bg-[#d1a32c] text-white hover:bg-[#b88d22]"
-                : "bg-[#d1a32c] text-white hover:bg-[#bb8c19]"
-            }`}
+            onClick={() => window.location.href = "/contact"}
+            className="hidden md:block px-7 py-3 bg-[#d1a32c] text-white rounded-full 
+                       font-semibold hover:bg-[#bb8c19] transition"
           >
             Enquiry Now
           </button>
 
+          {/* MOBILE HAMBURGER */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-white"
+          >
+            {menuOpen ? <Close size={30} /> : <Menu size={30} />}
+          </button>
+
         </div>
+
+        {/* ===================== MOBILE MENU ===================== */}
+        <div
+          className={`md:hidden bg-[#203370] text-white overflow-hidden transition-all duration-500 ${
+            menuOpen ? "max-h-96 p-5" : "max-h-0 p-0"
+          }`}
+        >
+          <ul className="flex flex-col gap-5 text-lg font-medium">
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
+            <li><Link to="/blogs" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
+            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
+
+            {/* MOBILE ENQUIRY BUTTON */}
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                window.location.href = "/contact";
+              }}
+              className="mt-2 w-full px-7 py-3 bg-[#d1a32c] text-white rounded-full font-semibold hover:bg-[#bb8c19] transition"
+            >
+              Enquiry Now
+            </button>
+          </ul>
+        </div>
+
       </nav>
     </header>
   );

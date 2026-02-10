@@ -4,10 +4,8 @@ import {
   Phone,
   Mail,
   Home,
-  Info,
-  BookOpen,
-  MessageSquare,
 } from "lucide-react";
+import img from "../assets/images/tact favicon.png";
 
 const Footer = () => {
   const navy = "#203370";
@@ -30,13 +28,13 @@ const Footer = () => {
 
           <ul className="space-y-3 text-white-300 text-sm">
             <li className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Hyderabad, Telangana, India
+              <MapPin className="w-4 h-4" /> Gowrelly, Hyderabad, Telangana
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="w-4 h-4" /> +91 98765 43210
+              <Phone className="w-4 h-4" /> +91 9052 299 299
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4" /> support@amrlegacy.in
+              <Mail className="w-4 h-4" /> amrlivingspaces@gmail.com
             </li>
           </ul>
         </div>
@@ -45,7 +43,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4 relative">
             Navigation
-            <span className="absolute left-0 -bottom-1 w-16 h-[2px]" style={{ backgroundColor: gold }} />
+            <span
+              className="absolute left-0 -bottom-1 w-16 h-[2px]"
+              style={{ backgroundColor: gold }}
+            />
           </h3>
 
           <ul className="space-y-3 text-white-300 text-sm">
@@ -56,11 +57,14 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Privacy / Terms / Blogs */}
+        {/* Useful Links */}
         <div>
           <h3 className="text-xl font-semibold mb-4 relative">
             Useful Links
-            <span className="absolute left-0 -bottom-1 w-16 h-[2px]" style={{ backgroundColor: gold }} />
+            <span
+              className="absolute left-0 -bottom-1 w-16 h-[2px]"
+              style={{ backgroundColor: gold }}
+            />
           </h3>
 
           <ul className="space-y-4 text-white-300 text-sm">
@@ -70,36 +74,49 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Newsletter */}
+        {/* ============ BOOK SITE VISIT (Replaces Newsletter) ============ */}
         <div>
           <h3 className="text-xl font-semibold mb-4 relative">
-            Newsletters
-            <span className="absolute left-0 -bottom-1 w-16 h-[2px]" style={{ backgroundColor: gold }} />
+            Book a Site Visit
+            <span
+              className="absolute left-0 -bottom-1 w-24 h-[2px]"
+              style={{ backgroundColor: gold }}
+            />
           </h3>
 
           <p className="text-white-300 text-sm leading-relaxed mb-4">
-            Subscribe to get the latest updates, real estate insights, and exclusive offers.
+            Experience AMR Legacy in person. Explore the community, plots, and
+            world-class amenities with a guided tour.
           </p>
 
-          <input
-            type="email"
-            placeholder="Enter Your Email"
-            className="w-full px-4 py-3 rounded-lg bg-[#1a2a55] text-white placeholder-gray-300 outline-none mb-4"
-          />
-
           <button
-            className="w-full py-3 font-semibold rounded-lg text-center transition"
+            onClick={() => (window.location.href = "/contact")}
+            className="w-full py-3 font-semibold rounded-lg transition"
             style={{ backgroundColor: gold, color: navy }}
           >
-            SUBSCRIBE
+            BOOK NOW
           </button>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white py-6 text-center text-white-300 text-sm">
-        © {new Date().getFullYear()} AMR Legacy — All Rights Reserved.
-        <span className="text-white font-medium mx-4">Designed by TACT Advertising</span>
+        © {new Date().getFullYear()} AMR Legacy. All Rights Reserved.
+
+        <a
+          href="https://www.tactadvertising.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-white font-sm mx-1 transition"
+        >
+          Designed by
+          <img
+            src={img}
+            alt="TACT Icon"
+            className="w-4 h-4 object-contain"
+          />
+          TACT Advertising
+        </a>
       </div>
     </footer>
   );

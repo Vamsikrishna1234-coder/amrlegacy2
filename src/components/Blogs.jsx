@@ -207,12 +207,14 @@ const BlogsSection = () => {
                   </p>
 
                   <button
+                    onClick={() => window.location.href = `/blog/${blog.id}`}
                     className="flex items-center gap-2 text-white px-6 py-3 rounded-xl font-medium shadow-md hover:scale-105 transition"
                     style={{ backgroundColor: navy }}
                   >
                     Read More
                     <ArrowRight className="w-4 h-4" />
                   </button>
+
                 </div>
 
                 <div className="h-2" style={{ backgroundColor: navy }}></div>
