@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 import Home from './pages/Home.jsx';
 import Aboutus from './pages/Aboutus.jsx';
 import Blogs from './pages/Blogs.jsx';
-import BlogDetails from "./pages/BlogDetails";
+import BlogDetails from "./pages/BlogDetails.jsx";
 import Contactus from './pages/Contactus.jsx';
 import './index.css';
 
