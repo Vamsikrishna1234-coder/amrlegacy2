@@ -1,9 +1,15 @@
+import React from "react";
+import img1 from "../images/amr project1.jpg";
+import img2 from "../images/amr project2.jpg";
+import img3 from "../images/ORR.jpg";
+
+
 export const blogs = [
   {
     id: 1,
     title: "Why Gowrelly Is Emerging as a Villa Destination in Hyderabad",
     date: "September 28, 2025",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    image: img1,
 
     desc:
       "Gowrelly is rapidly transforming into a premium villa destination due to its ORR connectivity, peaceful environment, and strong future growth.",
@@ -29,7 +35,7 @@ Surrounded by established and upcoming premium villa communities, Gowrelly maint
     id: 2,
     title: "How ORR Connectivity Is Transforming East Hyderabad Real Estate",
     date: "October 28, 2025",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827",
+    image: img3,
 
     desc:
       "Hyderabad’s ORR has revolutionized East Hyderabad by improving connectivity, reducing travel times, and boosting villa development.",
@@ -56,7 +62,7 @@ Overall, the ORR has redefined East Hyderabad as a balanced zone for growth and 
     id: 3,
     title: "East Hyderabad vs West Hyderabad: Villa Living Comparison",
     date: "November 28, 2025",
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716",
+    image: img2,
 
     desc:
       "A complete comparison of villa living in East vs West Hyderabad—pricing, lifestyle, infrastructure, and investment potential.",

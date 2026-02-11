@@ -30,7 +30,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-27">
+    <div className="w-full max-w-5xl mx-auto py-25">
       {/* Heading */}
       <h2 className="text-4xl font-medium text-center mb-4">
         Our Premium Gallery

@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom";
 import { blogs } from "../assets/data/blogs.js";
-import img from "../assets/images/parallalex img.jpg";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -20,31 +19,36 @@ export default function BlogDetails() {
   const nextBlog = blogs[currentIndex + 1];
 
   return (
-    <div className="w-full bg-gray-50 pb-20">
+    <div className="w-full bg-gray-50 pb-20 py-25">
 
-      {/* ========= HERO SECTION ========= */}
-      <div
-        className="h-[350px] md:h-[460px] w-full bg-cover bg-center relative flex items-end"
-        style={{
-           backgroundImage: `url(${img})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-
-        
+      {/* ========= IMAGE CARD (Responsive) ========= */}
+      <div className="max-w-5xl mx-auto px-6 pt-10">
+        <div className="rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="
+              w-full 
+              h-[260px] 
+              sm:h-[320px] 
+              md:h-[450px] 
+              lg:h-[520px] 
+              object-cover
+            "
+          />
+        </div>
       </div>
 
       {/* ========= CONTENT SECTION ========= */}
       <div className="max-w-5xl mx-auto px-6 py-12">
 
-        {/* Stylish Quote Box (Optional) */}
-        <div className="bg-[#203370] text-white text-lg font-medium p-6 rounded-xl mb-10 shadow-md">
-            
-          “Real estate insights that help you make better investment decisions.”
+        {/* ==== BLOG TITLE BOX (Dynamic) ==== */}
+        <div className="bg-[#203370] text-white text-lg md:text-xl font-medium p-6 rounded-xl mb-10 shadow-md text-center">
+          {blog.title}
         </div>
 
         {/* Full Blog Content */}
-        <div className="text-gray-700 text-[18px] leading-relaxed whitespace-pre-line">
+        <div className="text-gray-700 text-[17px] md:text-[18px] leading-relaxed whitespace-pre-line">
           {blog.full}
         </div>
 
@@ -52,7 +56,7 @@ export default function BlogDetails() {
         <div className="h-[1px] w-full bg-gray-300 my-12"></div>
 
         {/* ========= PREVIOUS / NEXT BLOGS ========= */}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-4 flex-wrap">
 
           {previousBlog ? (
             <Link
@@ -87,7 +91,6 @@ export default function BlogDetails() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
-
           {blogs
             .filter((b) => b.id !== blog.id)
             .slice(0, 2)
@@ -111,12 +114,13 @@ export default function BlogDetails() {
                 </div>
               </Link>
             ))}
-
         </div>
 
         {/* ========= CTA BOX ========= */}
         <div className="bg-[#203370] text-white p-8 rounded-2xl mt-16 shadow-lg text-center">
-          <h3 className="text-2xl font-semibold mb-2">Looking to Buy a Villa?</h3>
+          <h3 className="text-2xl font-semibold mb-2">
+            Looking to Buy a Villa?
+          </h3>
           <p className="text-white/80 mb-6">
             Contact us today — our team will guide you with premium plots and villa options.
           </p>

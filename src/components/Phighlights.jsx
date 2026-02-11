@@ -60,7 +60,7 @@ export default function ProjectHighlights() {
 
   return (
     <section
-      className="relative w-full min-h-[85vh] py-28 px-4 overflow-hidden"
+      className="relative w-full min-h-[75vh] py-20 px-4 overflow-hidden"
       style={{ backgroundColor: brand.blue }}
     >
       {/* Soft background glow */}

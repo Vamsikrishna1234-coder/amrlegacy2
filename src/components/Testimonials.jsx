@@ -1,51 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import img1 from "../assets/images/amr project1.jpg";
+import img2 from "../assets/images/amr project2.jpg";
+import img3 from "../assets/images/amr hero2.jpg";
+import img4 from "../assets/images/amr hero3.jpg";
+import t1 from "../assets/images/test1.jpg";
+import t2 from "../assets/images/test2.jpg";
+import t3 from "../assets/images/test3.jpg";
 
 export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: "Hailey Mccray",
-      location: "Los Angeles",
+      name: "Pradeep",
+      location: "Hyderabad",
       review:
         "AMR Legacy has redefined what premium living means for us. The attention to detail, the architecture, and the peaceful surroundings make it truly feel like home.",
       image:
-        "https://images.unsplash.com/photo-1586105459019-ff1f5f4c7a77?auto=format&fit=crop&w=900&q=80",
+        t1,
       house:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+        img1,
     },
     {
       id: 2,
-      name: "Daniel Carter",
-      location: "New York",
+      name: "Bhaskar Reddy",
+      location: "Hyderabad",
       review:
         "From booking to handover, AMR Legacy delivered everything with exceptional professionalism. Truly a brand that values trust, quality, and customer satisfaction beyond expectations.",
       image:
-        "https://images.unsplash.com/photo-1637916008618-7f3c7eca21e8?auto=format&fit=crop&w=900&q=80",
+        t2,
       house:
-        "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1000&q=80",
+        img2,
     },
     {
       id: 3,
-      name: "Sophia Parker",
-      location: "Chicago",
+      name: "Raghu",
+      location: "Hyderabad",
       review:
         "Beautiful architecture, excellent amenities, and a strong sense of community. AMR Legacy made our dream home a reality with unmatched quality and thoughtful planning.",
       image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80",
+        t3,
       house:
-        "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80",
+        img3,
     },
     {
       id: 4,
-      name: "Michael Johnson",
-      location: "Texas",
+      name: "Raja Reddy",
+      location: "Hyderabad",
       review:
         "Living at an AMR Legacy property has been an incredible experience. The environment, layout, and comfort they provide truly stand out in the real estate market.",
       image:
-        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
+        t2,
       house:
-        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3c5d?auto=format&fit=crop&w=1000&q=80",
+        img4,
     },
   ];
 

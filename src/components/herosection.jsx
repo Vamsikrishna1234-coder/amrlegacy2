@@ -15,7 +15,7 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, []);
