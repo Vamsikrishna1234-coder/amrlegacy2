@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { blogs } from "../assets/data/blogs";
+import { blogs } from "../assets/data/blogs.js";
 import img from "../assets/images/parallalex img.jpg";
 
 export default function BlogDetails() {
