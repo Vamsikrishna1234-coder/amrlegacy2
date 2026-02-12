@@ -73,7 +73,7 @@ const ClubhouseAmenities = () => {
   const navy = "#203370";
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-gray-100">
       {/* ======================== HERO SECTION ========================== */}
       <div className="relative overflow-hidden border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-8">

@@ -19,7 +19,7 @@ export default function BlogDetails() {
   const nextBlog = blogs[currentIndex + 1];
 
   return (
-    <div className="w-full bg-gray-50 pb-20 py-25">
+    <div className="w-full bg-gray-100 pb-20 py-25">
 
       {/* ========= IMAGE CARD (Responsive) ========= */}
       <div className="max-w-5xl mx-auto px-6 pt-10">

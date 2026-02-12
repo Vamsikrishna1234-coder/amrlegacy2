@@ -24,7 +24,8 @@ export default function AboutAMRLegacy() {
   ];
 
   return (
-    <section className="relative bg-white py-20 overflow-hidden">
+    <section className="relative bg-gray-100 py-20 overflow-hidden">
+
 
       {/* Geometric Real Estate Background */}
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none bg-[radial-gradient(circle_at_center,rgba(32,51,112,.25),transparent_60%)]"></div>

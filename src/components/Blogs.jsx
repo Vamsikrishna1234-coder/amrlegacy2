@@ -31,7 +31,7 @@ const BlogsSection = () => {
   ];
 
   return (
-    <div className="w-full py-20 bg-gray-50">
+    <div className="w-full py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}

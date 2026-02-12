@@ -11,7 +11,7 @@ export default function GoldenTree() {
 
   return (
     <>
-      <section className="relative bg-white py-24 overflow-hidden">
+      <section className="relative bg-gray-100 py-24 overflow-hidden">
         {/* Particle Lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden lg:block">
           {[...Array(12)].map((_, i) => (

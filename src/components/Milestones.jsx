@@ -63,7 +63,7 @@ export default function OdometerMilestones() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 px-6 md:px-16 bg-gradient-to-br from-white to-[#f5f8fb]"
+      className="py-20 px-6 md:px-16 bg-gray-100"
     >
       <div className="max-w-7xl mx-auto">
 

@@ -103,7 +103,7 @@ export default function ContactPage() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white py-20 md:py-45 overflow-hidden"
+      className="relative w-full bg-gray-100 py-20 md:py-45 overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">

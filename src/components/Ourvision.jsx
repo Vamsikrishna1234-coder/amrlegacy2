@@ -98,7 +98,7 @@ export default function VisionMission() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white py-20 md:py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="relative w-full bg-gray-100 py-20 md:py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">

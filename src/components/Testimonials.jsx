@@ -72,7 +72,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24 bg-[#f5f8fb] px-6 md:px-16">
+    <section className="py-24 bg-gray-100 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
 
         {/* SECTION HEADING */}

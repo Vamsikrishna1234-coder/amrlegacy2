@@ -72,7 +72,7 @@ export default function WhyChooseUs() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-20 md:py-20 px-6 md:px-12 lg:px-20 bg-white relative overflow-hidden"
+      className="w-full py-20 md:py-20 px-6 md:px-12 lg:px-20 bg-gray-100 relative overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-30">

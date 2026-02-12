@@ -89,7 +89,7 @@ export default function CoreValues() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-7 bg-white overflow-hidden"
+      className="relative py-7 bg-gray-100 overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">

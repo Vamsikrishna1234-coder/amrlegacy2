@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
 
-      {/* ===================== TOP INFO BAR (hidden on mobile + tablet) ===================== */}
+      {/* ===================== TOP INFO BAR ===================== */}
       <div
         className={`${
           !scrolled ? "xl:block hidden" : "hidden"
@@ -59,17 +59,53 @@ export default function Navbar() {
 
             <div className="w-[1px] h-5 bg-white/60"></div>
 
+            {/* SOCIAL MEDIA LINKS */}
             <div className="flex items-center gap-3">
-              {[Facebook, X, Youtube, Instagram].map((Icon, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 flex items-center justify-center rounded-full 
-                             bg-white/20 border border-white/70 
-                             hover:bg-white/40 transition cursor-pointer"
-                >
-                  <Icon size={16} className="text-white" />
-                </div>
-              ))}
+
+              <a
+                href="https://www.facebook.com/amrlivingspaces"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full 
+                           bg-white/20 border border-white/70 
+                           hover:bg-white/40 transition"
+              >
+                <Facebook size={16} className="text-white" />
+              </a>
+
+              <a
+                href="https://x.com/AmrLiving"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full 
+                           bg-white/20 border border-white/70 
+                           hover:bg-white/40 transition"
+              >
+                <X size={16} className="text-white" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@AMRLivingSpaces"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full 
+                           bg-white/20 border border-white/70 
+                           hover:bg-white/40 transition"
+              >
+                <Youtube size={16} className="text-white" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/amrlivingspaces/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full 
+                           bg-white/20 border border-white/70 
+                           hover:bg-white/40 transition"
+              >
+                <Instagram size={16} className="text-white" />
+              </a>
+
             </div>
           </div>
 
@@ -99,7 +135,7 @@ export default function Navbar() {
             <li className="hover:text-[#d1a32c]"><Link to="/contact">Contact Us</Link></li>
           </ul>
 
-          {/* ENQUIRY BUTTON (Desktop only) */}
+          {/* ENQUIRY BUTTON */}
           <button
             onClick={() => window.location.href = "/contact"}
             className="hidden md:block px-7 py-3 bg-[#d1a32c] text-white rounded-full 
@@ -118,7 +154,7 @@ export default function Navbar() {
 
         </div>
 
-        {/* ===================== MOBILE MENU ===================== */}
+        {/* MOBILE MENU */}
         <div
           className={`md:hidden bg-[#203370] text-white overflow-hidden transition-all duration-500 ${
             menuOpen ? "max-h-96 p-5" : "max-h-0 p-0"
@@ -130,7 +166,6 @@ export default function Navbar() {
             <li><Link to="/blogs" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
             <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
 
-            {/* MOBILE ENQUIRY BUTTON */}
             <button
               onClick={() => {
                 setMenuOpen(false);
