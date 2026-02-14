@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Home, MapPin, X } from 'lucide-react';
-import MasterPlan from '../assets/images/Master Plan.jpg'; // <-- change path if needed
+import MasterPlan from '../assets/images/Master Plan.jpg'; // change path if needed
 
 // Simple seeded random function so pattern is consistent
 function seededRandom(seed = 42) {
@@ -28,7 +28,7 @@ export default function PlotLayout() {
       {/* ================= MASTER PLAN SECTION ================= */}
       <div className="w-full bg-white py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#203370] mb-3">
+          <h2 className="text-3xl md:text-4xl font-medium text-[#203370] mb-3">
             Project Master Plan
           </h2>
           <p className="text-gray-600">
@@ -68,7 +68,7 @@ export default function PlotLayout() {
         </div>
       )}
 
-      {/* ================= VILLA PLOT LAYOUT (UNCHANGED) ================= */}
+      {/* ================= VILLA PLOT LAYOUT ================= */}
 
       <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8 relative overflow-hidden">
         {/* Animated Background Elements */}
@@ -95,25 +95,21 @@ export default function PlotLayout() {
             </div>
 
             {/* Legend */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 sm:mb-8">
-              <div className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-emerald-50 to-emerald-100 px-4 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl border-2 border-emerald-300 shadow-md hover:scale-105 transition-transform">
-                <div className="w-8 sm:w-10 h-8 sm:h-10 bg-white border-2 border-emerald-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-sm">
-                  <Home className="w-5 sm:w-6 h-5 sm:h-6 text-emerald-600" />
-                </div>
-                <span className="text-sm sm:text-base font-bold text-emerald-800">Available</span>
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              <div className="flex items-center gap-3 bg-emerald-100 px-5 py-3 rounded-2xl border-2 border-emerald-400 shadow-md">
+                <Home className="w-6 h-6 text-emerald-600" />
+                <span className="font-bold text-emerald-800">Available</span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-rose-50 to-rose-100 px-4 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl border-2 border-rose-300 shadow-md hover:scale-105 transition-transform">
-                <div className="w-8 sm:w-10 h-8 sm:h-10 bg-white border-2 border-rose-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-sm">
-                  <Home className="w-5 sm:w-6 h-5 sm:h-6 text-rose-600" />
-                </div>
-                <span className="text-sm sm:text-base font-bold text-rose-800">Sold</span>
+              <div className="flex items-center gap-3 bg-rose-100 px-5 py-3 rounded-2xl border-2 border-rose-400 shadow-md">
+                <Home className="w-6 h-6 text-rose-600" />
+                <span className="font-bold text-rose-800">Sold</span>
               </div>
             </div>
           </div>
 
           {/* Plot Grid */}
           <div className="overflow-x-auto pb-4">
-            <div className="grid grid-cols-14 gap-1 sm:gap-1.5 md:gap-2 min-w-[900px] sm:min-w-[1100px] p-3 sm:p-4 md:p-6 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl sm:rounded-3xl border-2 border-slate-300 shadow-inner">
+            <div className="grid grid-cols-14 gap-2 min-w-[1100px] p-6 bg-slate-200 rounded-3xl border-2 border-slate-300 shadow-inner">
               {plots.map((plot, index) => (
                 <div
                   key={plot.id}
@@ -123,33 +119,58 @@ export default function PlotLayout() {
                   onMouseLeave={() => setHoveredPlot(null)}
                 >
                   <div
-                    className={`
-                      w-full h-full rounded-lg sm:rounded-xl cursor-pointer transition-all duration-300 
-                      flex flex-col items-center justify-center overflow-hidden
-                      transform-gpu
-                      ${plot.status === 'available'
-                        ? 'bg-gradient-to-br from-emerald-100 to-emerald-200 border border-emerald-400 hover:from-emerald-200 hover:to-emerald-300 hover:border-emerald-500'
-                        : 'bg-gradient-to-br from-rose-100 to-rose-200 border border-rose-400 hover:from-rose-200 hover:to-rose-300 hover:border-rose-500'
+                    className={`w-full h-full rounded-xl cursor-pointer transition-all duration-300 
+                    flex flex-col items-center justify-center
+                    ${plot.status === 'available'
+                        ? 'bg-emerald-200 border border-emerald-500'
+                        : 'bg-rose-200 border border-rose-500'
                       }
-                      ${hoveredPlot?.id === plot.id
-                        ? 'ring-3 sm:ring-4 ring-purple-400/60 scale-105 sm:scale-110 z-10 shadow-xl'
+                    ${hoveredPlot?.id === plot.id
+                        ? 'ring-4 ring-purple-400 scale-110 z-10 shadow-xl'
                         : 'hover:scale-105 hover:shadow-md'
-                      }
-                    `}
+                      }`}
                   >
                     <Home
-                      className={`w-3.5 h-3.5 sm:w-5 sm:h-5 mb-0.5 ${
-                        plot.status === 'available' ? 'text-emerald-700' : 'text-rose-700'
+                      className={`w-5 h-5 mb-1 ${
+                        plot.status === 'available'
+                          ? 'text-emerald-700'
+                          : 'text-rose-700'
                       }`}
                     />
-                    <span
-                      className={`text-[9px] sm:text-xs md:text-sm font-black ${
-                        plot.status === 'available' ? 'text-emerald-900' : 'text-rose-900'
-                      }`}
-                    >
+                    <span className="text-sm font-black">
                       {plot.id}
                     </span>
                   </div>
+
+                  {/* Tooltip */}
+                  {hoveredPlot?.id === plot.id && (
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 z-30 pointer-events-none animate-bounce-in"
+                      style={{
+                        top: index < 14 ? '100%' : 'auto',
+                        bottom: index < 14 ? 'auto' : '100%',
+                        marginTop: index < 14 ? '8px' : '0',
+                        marginBottom: index < 14 ? '0' : '8px',
+                      }}
+                    >
+                      <div className="bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl text-sm whitespace-nowrap">
+                        <div className="flex items-center gap-3">
+                          <span className="font-bold">Plot #{plot.id}</span>
+                          <div
+                            className={`px-3 py-1 rounded-full text-xs font-black ${
+                              plot.status === 'available'
+                                ? 'bg-emerald-400 text-emerald-900'
+                                : 'bg-rose-400 text-rose-900'
+                            }`}
+                          >
+                            {plot.status === 'available'
+                              ? 'AVAILABLE'
+                              : 'SOLD'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -159,7 +180,6 @@ export default function PlotLayout() {
     </>
   );
 }
-
 
 
 
