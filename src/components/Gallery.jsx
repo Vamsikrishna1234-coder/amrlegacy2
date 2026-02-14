@@ -34,7 +34,7 @@ export default function Gallery() {
       <div className="max-w-5xl mx-auto">
 
         {/* Heading */}
-        <h2 className="text-4xl font-medium text-center mb-4">
+        <h2 className="text-3xl font-medium text-center mb-4">
           Our Premium Gallery
         </h2>
 
