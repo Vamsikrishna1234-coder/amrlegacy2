@@ -453,8 +453,17 @@ export default function LocationHighlights() {
             </div>
 
             {/* BUTTON */}
-            <div className="mt-8 flex justify-center lg:justify-start">
-              <button className="w-full sm:w-auto bg-gradient-to-r from-[#203370] to-[#d1a32c] text-white font-semibold py-4 px-55 rounded-xl hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            <div className="mt-8 w-full max-w-md mx-auto lg:mx-0">
+              <button className="
+                w-full
+                bg-gradient-to-r from-[#203370] to-[#d1a32c]
+                text-white font-semibold
+                py-4
+                rounded-xl
+                hover:shadow-xl
+                hover:scale-105
+                transition-all duration-300
+              ">
                 View All Locations
               </button>
             </div>
