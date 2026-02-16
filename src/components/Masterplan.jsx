@@ -26,7 +26,7 @@ export default function PlotLayout() {
   return (
     <>
       {/* ================= MASTER PLAN SECTION ================= */}
-      <div className="w-full bg-white py-12 px-4 md:px-8">
+      <div className="w-full bg-gray-100 py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-medium text-[#203370] mb-3">
             Project Master Plan
