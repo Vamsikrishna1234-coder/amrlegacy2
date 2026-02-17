@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 
 import logo from "../assets/images/amr-whitelogo.png";
+import legacyLogo from "../assets/images/Legacylogowhite.png"; 
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -122,10 +124,22 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-3 flex items-center justify-between py-4">
 
-          {/* LOGO */}
-          <Link to="/">
-            <img src={logo} alt="Logo" className="h-14 cursor-pointer" />
-          </Link>
+          {/* LOGO + LEGACY IMAGE */}
+<Link to="/" className="flex items-center gap-4">
+  <img
+    src={logo}
+    alt="AMR Logo"
+    className="h-14 object-contain"
+  />
+
+  <img
+    src={legacyLogo}
+    alt="Legacy Logo"
+    className="h-16 object-contain"
+  />
+</Link>
+
+
 
           {/* DESKTOP MENU */}
           <ul className="hidden md:flex items-center gap-16 font-medium text-[17px] text-white">
