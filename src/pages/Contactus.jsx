@@ -51,7 +51,7 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Visit Us",
-      details: ["AMR Legacy", "Hyderabad, Telangana", "India - 500001"],
+      details: ["AMR Legacy","Gowrelly ,Hyderabad, Telangana", "India - 500001"],
       color: "blue",
     },
     {
@@ -61,7 +61,7 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Call Us",
-      details: ["+91 98765 43210", "+91 98765 43211", "Mon-Sat: 9AM - 7PM"],
+      details: [" +91 9052 299 299", "+91 9876 543  210",  "Mon-Sat: 9AM - 7PM"],
       color: "gold",
     },
     {
@@ -366,31 +366,38 @@ export default function ContactPage() {
 
           {/* Right Sidebar */}
           <div
-            className={`lg:col-span-2 space-y-8 transition-all duration-1000 delay-600 ${
-              inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-            }`}
-          >
-            {/* Map Placeholder */}
-            <div className="bg-white border-2 border-gray-200 rounded-3xl overflow-hidden shadow-xl h-80 relative group hover:border-[#d1a32c] transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#203370]/10 to-[#d1a32c]/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">📍</div>
-                  <p
-                    className="text-[#203370] font-bold text-xl"
-                    style={{ fontFamily: '"Outfit", sans-serif' }}
-                  >
-                    Find Us on Map
-                  </p>
-                  <p
-                    className="text-gray-600 mt-2"
-                    style={{ fontFamily: '"Inter", sans-serif' }}
-                  >
-                    Hyderabad, Telangana
-                  </p>
+              className={`lg:col-span-2 space-y-8 transition-all duration-1000 delay-600 ${
+                inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              }`}
+            >
+              <div
+                onClick={() =>
+                  window.open(
+                    "https://maps.app.goo.gl/iHe1JEyQVg3nES8cA",
+                    "_blank"
+                  )
+                }
+                className="cursor-pointer bg-white border-2 border-gray-200 rounded-3xl overflow-hidden shadow-xl h-80 relative group hover:border-[#d1a32c] transition-all duration-500"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#203370]/10 to-[#d1a32c]/10 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📍</div>
+                    <p
+                      className="text-[#203370] font-bold text-xl"
+                      style={{ fontFamily: '"Outfit", sans-serif' }}
+                    >
+                      Find Us on Map
+                    </p>
+                    <p
+                      className="text-gray-600 mt-2"
+                      style={{ fontFamily: '"Inter", sans-serif' }}
+                    >
+                      Hyderabad, Telangana
+                    </p>
+                  </div>
                 </div>
               </div>
-              {/* Replace this div with actual Google Maps iframe */}
-            </div>
+
 
             
 
