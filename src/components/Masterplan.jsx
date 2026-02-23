@@ -269,7 +269,7 @@
 
 
 import { useState, useRef, useCallback } from "react";
-import img1 from "../assets/images/Master Plan2.jpeg";
+import img1 from "../assets/images/Master Plan3.jpeg";
 
 /* ================= IMAGE SIZE: 2000 x 1125 ================= */
 const IMG_W = 2000, IMG_H = 1125;
