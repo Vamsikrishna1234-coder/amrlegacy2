@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Compass, X } from 'lucide-react';
-import East1 from "../assets/images/eastfacing fp.jpg";
-import East2 from "../assets/images/eastfacing fp1.jpg";
-import West1 from "../assets/images/westfacing fp.jpg";
-import West2 from "../assets/images/westfacing fp1.jpg";
+import East1 from "../assets/images/E1.jpeg";
+import East2 from "../assets/images/E2.jpeg";
+import West1 from "../assets/images/W1.jpeg";
+import West2 from "../assets/images/W2.jpeg";
 
 const FloorPlansComponent = () => {
   const [eastFacingIndex, setEastFacingIndex] = useState(0);
