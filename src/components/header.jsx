@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 import logo from "../assets/images/amr-whitelogo.png";
-import legacyLogo from "../assets/images/Legacylogowhite.png"; 
+import legacyLogo from "../assets/images/legacy white.png"; 
 
 
 export default function Navbar() {
