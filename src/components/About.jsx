@@ -1,10 +1,11 @@
-
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Building2, MapPin, Trees, Shield, Star } from "lucide-react";
 import img1 from "../assets/images/amr project1.jpg";
 
 export default function AboutAMRLegacy() {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setShow(true);
@@ -25,9 +26,7 @@ export default function AboutAMRLegacy() {
 
   return (
     <section className="relative bg-gray-100 py-20 overflow-hidden">
-
-
-      {/* Geometric Real Estate Background */}
+      {/* Background */}
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none bg-[radial-gradient(circle_at_center,rgba(32,51,112,.25),transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[linear-gradient(120deg,#20337011_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none"></div>
 
@@ -46,24 +45,15 @@ export default function AboutAMRLegacy() {
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
-          {/* Left – Image + Floating Boxes */}
+          {/* Left – Image */}
           <div className={`relative transition-all duration-700 delay-200 ${show ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
-
-            
-
-            <div className="relative rounded-3xl overflow-hidden ">
-              <img
-                src={img1}
-                className="w-full h-[490px] object-cover"
-              />
+            <div className="relative rounded-3xl overflow-hidden">
+              <img src={img1} className="w-full h-[490px] object-cover" />
 
               {/* Floating Stats */}
               <div className="absolute -bottom-3 left-6 flex gap-4">
                 {stats.map((s, i) => (
-                  <div
-                    key={i}
-                    className="bg-white shadow-xl border-l-4 border-[#d1a32c] px-5 py-4 rounded-xl backdrop-blur-md"
-                  >
+                  <div key={i} className="bg-white shadow-xl border-l-4 border-[#d1a32c] px-5 py-4 rounded-xl backdrop-blur-md">
                     <div className="text-xl font-bold text-[#203370]">{s.value}</div>
                     <div className="text-xs text-gray-600">{s.label}</div>
                   </div>
@@ -72,7 +62,7 @@ export default function AboutAMRLegacy() {
             </div>
           </div>
 
-          {/* Right – Details */}
+          {/* Right – Text */}
           <div className={`transition-all duration-700 delay-300 ${show ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}>
             <h3 className="text-3xl font-medium text-[#203370] leading-tight mb-4">
               A Perfect Blend of Luxury and Nature
@@ -102,9 +92,10 @@ export default function AboutAMRLegacy() {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA Button */}
         <div className={`text-center mt-10 transition-all duration-700 delay-500 ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <button
+            onClick={() => navigate("/about")}
             className="px-10 py-3 text-lg font-semibold rounded-full shadow-xl transition-all hover:scale-105"
             style={{ backgroundColor: "#d1a32c", color: "#203370" }}
           >

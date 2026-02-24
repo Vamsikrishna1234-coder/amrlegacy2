@@ -5,21 +5,80 @@ export default function ChatbotWidget() {
   const [open, setOpen] = useState(true);
   const [activeForm, setActiveForm] = useState(null);
 
+  // ⭐ New Success / Error Messages
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  // ⭐ Form Data for both forms
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    date: "",
+    message: "",
+    subject: "",
+  });
+
   useEffect(() => {
-    setOpen(true); // Auto-open on each reload
+    setOpen(true);
   }, []);
+
+  // 🚀 Universal Change Handler
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  // 🚀 Send data to PHP
+  const handleSubmit = async () => {
+    setSuccessMsg("");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch(
+        "http://localhost/AMR-LEGACY-APP/backend/sendMail.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const result = await res.json();
+
+      if (result.status === "success") {
+        setSuccessMsg("Message sent successfully!");
+
+        // Reset form
+        setForm({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+          date: "",
+          subject: "",
+        });
+
+        setTimeout(() => setSuccessMsg(""), 4000);
+      } else {
+        setErrorMsg(result.message || "Mail sending failed!");
+        setTimeout(() => setErrorMsg(""), 4000);
+      }
+    } catch (error) {
+      setErrorMsg("Something went wrong. Try again later.");
+      setTimeout(() => setErrorMsg(""), 4000);
+    }
+  };
 
   const faqs = [
     { q: "What is the project location?", a: "The project is located in Gowrelly with ORR connectivity." },
     { q: "Do you provide site visits?", a: "Yes, guided site visits are available with prior booking." },
-    { q: "What amenities are included?", a: "We offer clubhouse, gym, sports court, parks, and more." },
+    { q: "What amenities are included?", a: "Clubhouse, gym, sports court, parks, and more." },
     { q: "What is the price range?", a: "Pricing depends on plot size and orientation." },
     { q: "How can I book a villa?", a: "You can book via enquiry or direct site visit." }
   ];
 
   return (
     <>
-      {/* CHAT BUTTON WHEN CLOSED */}
       {!open && (
         <button
           onClick={() => setOpen(true)}
@@ -37,7 +96,6 @@ export default function ChatbotWidget() {
         </button>
       )}
 
-      {/* CHATBOT WIDGET */}
       {open && (
         <div
           className="
@@ -59,18 +117,36 @@ export default function ChatbotWidget() {
 
           <div className="p-4 max-h-[50vh] overflow-y-auto">
 
-            {/* SELECTION BUTTONS */}
+            {/* ⭐ SUCCESS / ERROR MESSAGE */}
+            {successMsg && (
+              <p className="bg-green-100 text-green-700 p-2 rounded mb-3 text-sm">
+                {successMsg}
+              </p>
+            )}
+            {errorMsg && (
+              <p className="bg-red-100 text-red-700 p-2 rounded mb-3 text-sm">
+                {errorMsg}
+              </p>
+            )}
+
+            {/* BUTTONS */}
             {!activeForm && (
               <div className="space-y-3">
                 <button
-                  onClick={() => setActiveForm("site")}
+                  onClick={() => {
+                    setActiveForm("site");
+                    setForm((f) => ({ ...f, subject: "Site Visit Request" }));
+                  }}
                   className="w-full bg-[#d1a32c] text-white py-3 rounded-lg font-medium hover:bg-[#b98c22] transition"
                 >
                   Book a Site Visit
                 </button>
 
                 <button
-                  onClick={() => setActiveForm("enquiry")}
+                  onClick={() => {
+                    setActiveForm("enquiry");
+                    setForm((f) => ({ ...f, subject: "General Enquiry" }));
+                  }}
                   className="w-full bg-[#203370] text-white py-3 rounded-lg font-medium hover:bg-[#1a2a5a] transition"
                 >
                   Send an Enquiry
@@ -81,14 +157,41 @@ export default function ChatbotWidget() {
             {/* SITE VISIT FORM */}
             {activeForm === "site" && (
               <div className="space-y-4">
+
                 <h4 className="font-semibold text-lg text-[#203370]">Book a Site Visit</h4>
 
-                <input className="w-full border p-2 rounded" placeholder="Name" />
-                <input className="w-full border p-2 rounded" placeholder="Phone" />
-                <input className="w-full border p-2 rounded" placeholder="Email" />
-                <input type="date" className="w-full border p-2 rounded" />
+                <input
+                  value={form.name}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Name"
+                />
 
-                <button className="w-full bg-[#d1a32c] text-white py-3 rounded-lg font-medium">
+                <input
+                  value={form.phone}
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Phone"
+                />
+
+                <input
+                  value={form.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Email"
+                />
+
+                <input
+                  type="date"
+                  value={form.date}
+                  onChange={(e) => handleChange("date", e.target.value)}
+                  className="w-full border p-2 rounded"
+                />
+
+                <button
+                  onClick={handleSubmit}
+                  className="w-full bg-[#d1a32c] text-white py-3 rounded-lg font-medium"
+                >
                   Submit
                 </button>
 
@@ -104,14 +207,42 @@ export default function ChatbotWidget() {
             {/* ENQUIRY FORM */}
             {activeForm === "enquiry" && (
               <div className="space-y-4">
+
                 <h4 className="font-semibold text-lg text-[#203370]">Send an Enquiry</h4>
 
-                <input className="w-full border p-2 rounded" placeholder="Name" />
-                <input className="w-full border p-2 rounded" placeholder="Phone" />
-                <input className="w-full border p-2 rounded" placeholder="Email" />
-                <textarea rows={3} className="w-full border p-2 rounded" placeholder="Message"></textarea>
+                <input
+                  value={form.name}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Name"
+                />
 
-                <button className="w-full bg-[#203370] text-white py-3 rounded-lg font-medium">
+                <input
+                  value={form.phone}
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Phone"
+                />
+
+                <input
+                  value={form.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Email"
+                />
+
+                <textarea
+                  rows={3}
+                  value={form.message}
+                  onChange={(e) => handleChange("message", e.target.value)}
+                  className="w-full border p-2 rounded"
+                  placeholder="Message"
+                />
+
+                <button
+                  onClick={handleSubmit}
+                  className="w-full bg-[#203370] text-white py-3 rounded-lg font-medium"
+                >
                   Submit
                 </button>
 
@@ -124,7 +255,7 @@ export default function ChatbotWidget() {
               </div>
             )}
 
-            {/* FAQ SECTION */}
+            {/* FAQ */}
             <div className="mt-6">
               <h4 className="font-semibold text-[#203370] mb-3">Frequently Asked</h4>
               <div className="space-y-2">

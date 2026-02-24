@@ -454,17 +454,20 @@ export default function LocationHighlights() {
 
             {/* BUTTON */}
             <div className="mt-8 w-full max-w-md mx-auto lg:mx-0">
-              <button className="
-                w-full
-                bg-gradient-to-r from-[#203370] to-[#d1a32c]
-                text-white font-semibold
-                py-4
-                rounded-xl
-                hover:shadow-xl
-                hover:scale-105
-                transition-all duration-300
-              ">
-                View All Locations
+              <button
+                onClick={() => setIsMapOpen(true)}
+                className="
+                  w-full
+                  bg-gradient-to-r from-[#203370] to-[#d1a32c]
+                  text-white font-semibold
+                  py-4
+                  rounded-xl
+                  hover:shadow-xl
+                  hover:scale-105
+                  transition-all duration-300
+                "
+              >
+                View Map Location
               </button>
             </div>
           </div>

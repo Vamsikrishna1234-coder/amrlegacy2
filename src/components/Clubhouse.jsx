@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  ChevronLeft,
-  ChevronRight,
   Dumbbell,
   Gamepad2,
   Heart,
@@ -17,15 +15,17 @@ import {
   ArrowRight,
   X
 } from "lucide-react";
+
 import Clubhouse from "../assets/images/amr clubhouse.jpg";
 import gym from "../assets/images/gym amr.jpg";
 import yoga from "../assets/images/amr yoga.jpg";
 import games from "../assets/images/indoorgames amr.jpg";
 
 const ClubhouseAmenities = () => {
-  const [selectedAmenity, setSelectedAmenity] = useState(0);
-
   const [fullScreenOpen, setFullScreenOpen] = useState(false);
+
+  // NEW — this controls which image to show in fullscreen
+  const [openImage, setOpenImage] = useState(null);
 
   const featuredAmenities = [
     {
@@ -74,6 +74,7 @@ const ClubhouseAmenities = () => {
 
   return (
     <div className="w-full bg-gray-100">
+
       {/* ======================== HERO SECTION ========================== */}
       <div className="relative overflow-hidden border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-8">
@@ -101,24 +102,22 @@ const ClubhouseAmenities = () => {
           {/* MAIN CLUBHOUSE IMAGE */}
           <div
             className="relative group rounded-3xl overflow-hidden border border-gray-200 cursor-pointer"
-            onClick={() => setFullScreenOpen(true)}
+            onClick={() => {
+              setOpenImage(Clubhouse);
+              setFullScreenOpen(true);
+            }}
           >
             <img
               src={Clubhouse}
               alt="Clubhouse"
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition" />
-
-            <div className="absolute bottom-5 right-5 bg-white/80 px-4 py-2 rounded-xl shadow-md text-sm font-medium text-gray-800">
-              Click to view full image
-            </div>
           </div>
         </div>
       </div>
 
-      {/* ======================= FULL SCREEN POPUP ========================== */}
-      {fullScreenOpen && (
+      {/* ======================= FULL SCREEN POPUP FOR ANY IMAGE ========================== */}
+      {fullScreenOpen && openImage && (
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-6"
           onClick={() => setFullScreenOpen(false)}
@@ -131,8 +130,8 @@ const ClubhouseAmenities = () => {
           </button>
 
           <img
-            src={Clubhouse}
-            alt="Full Clubhouse"
+            src={openImage}
+            alt="Enlarged Amenity"
             className="max-w-full max-h-[90vh] rounded-xl object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -168,55 +167,52 @@ const ClubhouseAmenities = () => {
         </div>
       </div>
 
-      {/* ===================== FEATURED AMENITIES (CARD STYLE) ====================== */}
+      {/* ===================== FEATURED AMENITIES ====================== */}
       <div className="max-w-7xl mx-auto px-6 py-5 ">
         <h2 className="text-4xl font-medium text-center mb-14" style={{ color: navy }}>
           Featured Amenities
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {featuredAmenities.map((amenity) => {
-            const Icon = amenity.icon;
-
-            return (
-              <div
-                key={amenity.id}
-                className="bg-white rounded-3xl shadow-2xl border border-gray-200 hover:-translate-y-2 transition-all duration-300 overflow-hidden"
-              >
-                {/* Single Image */}
-                <div className="w-full h-56 overflow-hidden">
-                  <img
-                    src={amenity.image}
-                    alt={amenity.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 text-center">
-                  
-
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: navy }}>
-                    {amenity.title}
-                  </h3>
-
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    {amenity.description}
-                  </p>
-
-                  <button
-                    className="px-6 py-3 rounded-xl text-white font-semibold shadow-md hover:scale-105 transition flex items-center gap-2 mx-auto"
-                    style={{ backgroundColor: navy }}
-                  >
-                    Explore
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-
-                <div className="h-2" style={{ backgroundColor: navy }}></div>
+          {featuredAmenities.map((amenity) => (
+            <div
+              key={amenity.id}
+              className="bg-white rounded-3xl shadow-2xl border border-gray-200 hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+            >
+              <div className="w-full h-56 overflow-hidden">
+                <img
+                  src={amenity.image}
+                  alt={amenity.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            );
-          })}
+
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold mb-3" style={{ color: navy }}>
+                  {amenity.title}
+                </h3>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  {amenity.description}
+                </p>
+
+                {/* VIEW BUTTON */}
+                <button
+                  onClick={() => {
+                    setOpenImage(amenity.image);
+                    setFullScreenOpen(true);
+                  }}
+                  className="px-6 py-3 rounded-xl text-white font-semibold shadow-md hover:scale-105 transition flex items-center gap-2 mx-auto"
+                  style={{ backgroundColor: navy }}
+                >
+                  View Amenity
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="h-2" style={{ backgroundColor: navy }}></div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

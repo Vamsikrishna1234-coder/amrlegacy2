@@ -8,6 +8,7 @@ import Blogs from './pages/Blogs.jsx';
 import BlogDetails from "./pages/BlogDetails.jsx";
 import Contactus from './pages/Contactus.jsx';
 import ChatbotWidget from './components/chatbotwidget.jsx';
+import WhatsappButton from './components/Whatsappbtn.jsx';
 import './index.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <ScrollToTop />
       <ChatbotWidget /> 
+      <WhatsappButton />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<Aboutus />} />
