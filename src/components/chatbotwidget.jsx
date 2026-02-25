@@ -35,7 +35,7 @@ export default function ChatbotWidget() {
 
     try {
       const res = await fetch(
-        "http://localhost/AMR-LEGACY-APP/backend/sendMail.php",
+        "https://amrlegacy.in/backend/sendMail.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -12,20 +12,20 @@ require 'PHPMailer/SMTP.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$name = $data["name"];
-$email = $data["email"];
-$phone = $data["phone"];
-$subject = $data["subject"];
-$message = $data["message"];
+$name = $data["name"] ?? "";
+$email = $data["email"] ?? "";
+$phone = $data["phone"] ?? "";
+$subject = $data["subject"] ?? "General Enquiry"; // <-- add default
+$message = $data["message"] ?? "";
 
 $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
-    $mail->Host = 'mail.yourdomain.com';  
+    $mail->Host = 'mail.amrlegacy.in';
     $mail->SMTPAuth = true;
     $mail->Username = 'sales@amrlegacy.in';
-    $mail->Password = 'yourpassword';
+    $mail->Password = 'YOUR_REAL_EMAIL_PASSWORD'; // CHANGE THIS
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -48,3 +48,4 @@ try {
 } catch (Exception $e) {
     echo json_encode(["status" => "error", "message" => $mail->ErrorInfo]);
 }
+?>

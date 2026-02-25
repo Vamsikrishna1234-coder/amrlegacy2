@@ -31,7 +31,7 @@ export default function VisionMission() {
     icon: "👁️",
     subtitle: "Building Tomorrow's Communities Today",
     description:
-      "To be recognized as the most trusted and innovative real estate brand, creating landmark communities that inspire generations and set new benchmarks in quality, sustainability, and lifestyle excellence.",
+      "To be recognized as the most trusted and innovative real estate brand, creating landmark communities that inspire generations and set new benchmarks in quality, sustainability, and lifestyle excellence, delivering value with integrity always.",
     highlights: [
       {
         icon: "🏆",
@@ -239,24 +239,15 @@ export default function VisionMission() {
 
                   {/* View More Link */}
                   <div className="flex items-center gap-2 text-sm font-semibold">
-                    <span
-                      className={`bg-gradient-to-r ${card.content.gradient} bg-clip-text text-transparent`}
-                    >
-                      Explore More
-                    </span>
-                    <svg
-                      className="w-4 h-4 text-blue-600 animate-slide-right"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    
+                    
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
                         d="M9 5l7 7-7 7"
                       />
-                    </svg>
+                    
                   </div>
                 </div>
               </div>
