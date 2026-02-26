@@ -25,7 +25,7 @@ try {
     $mail->Host = 'mail.amrlegacy.in';
     $mail->SMTPAuth = true;
     $mail->Username = 'sales@amrlegacy.in';
-    $mail->Password = 'YOUR_REAL_EMAIL_PASSWORD'; // CHANGE THIS
+    $mail->Password = 'Sales@2024'; 
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
