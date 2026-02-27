@@ -21,7 +21,7 @@ export default function AboutAMRLegacy() {
   const stats = [
     { label: "Total Area", value: "10+ Acres" },
     { label: "Villas", value: "100+" },
-    { label: "Amenities", value: "20+" },
+    { label: "Amenities", value: "25+" },
   ];
 
   return (

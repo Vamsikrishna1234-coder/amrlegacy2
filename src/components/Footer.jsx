@@ -34,7 +34,7 @@ const Footer = () => {
               <Phone className="w-4 h-4" /> +91 9052 299 299
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4" /> amrlivingspaces@gmail.com
+              <Mail className="w-4 h-4" /> sales@amrlegacy.in
             </li>
           </ul>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import video from "../assets/videos/map intro.mp4";
 
 export default function ContactPage() {
   const [inView, setInView] = useState(false);
@@ -95,7 +96,7 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Visit Us",
-      details: ["AMR Legacy", "Gowrelly ,Hyderabad, Telangana", "India - 500001"],
+      details: ["AMR Legacy", "Gowrelly , Hyderabad ,Telangana", "India - 501505"],
       color: "blue",
     },
     {
@@ -105,7 +106,7 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Call Us",
-      details: [" +91 9052 299 299", "+91 9876 543 210", "Mon-Sat: 9AM - 7PM"],
+      details: [" +91 9052 299 299", "Mon-Sun: 9AM - 6:30PM"],
       color: "gold",
     },
     {
@@ -116,7 +117,7 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Email Us",
-      details: ["sales@amrlegacy.in", "info@amrlegacy.com"],
+      details: ["sales@amrlegacy.in",],
       color: "blue",
     },
   ];
@@ -330,15 +331,33 @@ export default function ContactPage() {
               onClick={() => window.open("https://maps.app.goo.gl/iHe1JEyQVg3nES8cA", "_blank")}
               className="cursor-pointer bg-white border-2 border-gray-200 rounded-3xl overflow-hidden shadow-xl h-80 relative group hover:border-[#d1a32c] transition-all duration-500"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#203370]/10 to-[#d1a32c]/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">📍</div>
-                  <p className="text-[#203370] font-bold text-xl" style={{ fontFamily: '"Outfit", sans-serif' }}>
-                    Find Us on Map
-                  </p>
-                  <p className="text-gray-600 mt-2" style={{ fontFamily: '"Inter", sans-serif' }}>
+              {/* 🔥 Background Video */}
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={video} type="video/mp4" />
+              </video>
+
+              {/* Dark Gradient Overlay for visibility */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#203370]/40 to-[#d1a32c]/40"></div>
+
+              {/* Foreground Content */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center ">
+                  {/* <div className="text-6xl mb-4">📍</div> */}
+                  <p
+                    className="text-[#ffffff] font-bold text-xl "
+                    style={{ fontFamily: '"Outfit", sans-serif' }}
+                  >
+                    Find Us on Map<br></br>
                     Hyderabad, Telangana
                   </p>
+                  
+                    
                 </div>
               </div>
             </div>
@@ -349,14 +368,10 @@ export default function ContactPage() {
               </h4>
               <div className="space-y-3">
                 <div className="flex justify-between items-center pb-3 border-b border-white/30">
-                  <span style={{ fontFamily: '"Inter", sans-serif' }}>Monday - Friday</span>
-                  <span className="font-bold" style={{ fontFamily: '"Outfit", sans-serif' }}>9AM - 7PM</span>
+                  <span style={{ fontFamily: '"Inter", sans-serif' }}>Monday - Sunday</span>
+                  <span className="font-bold" style={{ fontFamily: '"Outfit", sans-serif' }}>9AM - 6:30PM</span>
                 </div>
 
-                <div className="flex justify-between items-center pb-3 border-b border-white/30">
-                  <span style={{ fontFamily: '"Inter", sans-serif' }}>Saturday</span>
-                  <span className="font-bold" style={{ fontFamily: '"Outfit", sans-serif' }}>10AM - 5PM</span>
-                </div>
               </div>
             </div>
           </div>
@@ -390,3 +405,5 @@ export default function ContactPage() {
     </section>
   );
 }
+
+

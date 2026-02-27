@@ -253,7 +253,7 @@ export default function Navbar() {
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
               <Clock size={18} />
-              Mon to Sat - 09:00 to 21:00
+              Mon to Sun - 09:00AM to 6:30PM
             </span>
 
             <div className="w-[1px] h-5 bg-white/60"></div>
