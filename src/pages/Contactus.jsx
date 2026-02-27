@@ -106,7 +106,7 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Call Us",
-      details: [" +91 9052 299 299", "Mon-Sun: 9AM - 6:30PM"],
+      details: [" +91 9052 299 299", "Mon-Sun: 9:00AM - 6:30PM"],
       color: "gold",
     },
     {
@@ -369,7 +369,7 @@ export default function ContactPage() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center pb-3 border-b border-white/30">
                   <span style={{ fontFamily: '"Inter", sans-serif' }}>Monday - Sunday</span>
-                  <span className="font-bold" style={{ fontFamily: '"Outfit", sans-serif' }}>9AM - 6:30PM</span>
+                  <span className="font-bold" style={{ fontFamily: '"Outfit", sans-serif' }}>9:00AM - 6:30PM</span>
                 </div>
 
               </div>
